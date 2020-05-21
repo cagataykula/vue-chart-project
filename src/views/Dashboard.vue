@@ -3,15 +3,11 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
 
 export default {
-  methods: {
-    ...mapActions(['getTableData', 'getChartData'])
-  },
   async created () {
-    await this.getTableData()
-    await this.getChartData()
+    await this.$store.dispatch('getTableData')
+    await this.$store.dispatch('getChartData')
   }
 }
 </script>
