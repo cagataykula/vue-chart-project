@@ -1,3 +1,4 @@
+import _ from 'lodash'
 const baseURL = `http://${window.location.host}`
 
 export default {
@@ -28,8 +29,38 @@ export default {
         .then(res => res.json())
         .then(res => {
           const { data } = res
-          store.commit('setChartData', data)
-          resolve(data)
+          const series = [
+            {
+              name: 'Products',
+              colorByPoint: true,
+              data: []
+            }
+          ]
+
+          const drilldown = {
+            series: []
+          }
+
+          data.forEach(item => {
+            const average = _.meanBy(item.data, (j) => j[1])
+            item.y = average
+            item.drilldown = item.id
+
+            series[0].data.push({
+              drilldown: item.drilldown,
+              name: item.name,
+              y: average
+            })
+
+            drilldown.series.push({
+              data: item.data,
+              id: item.id,
+              name: item.name
+            })
+          })
+
+          store.commit('setChartData', { series, drilldown })
+          resolve({ series, drilldown })
         })
     })
   }
