@@ -94,6 +94,7 @@ export default {
   background-position: 50% 50%;
   background-attachment: fixed;
   min-height: 100%;
+  padding-bottom: 50px;
 }
 
 .titleWrapper {
