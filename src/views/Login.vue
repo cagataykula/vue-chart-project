@@ -20,7 +20,7 @@
           <TextInput password>Password</TextInput>
           <b-row class="forgotAndLoginWrapper">
               <span class="forgotText">Forgot Password</span>
-              <Button @click.native="$router.push({name: 'Dashboard'})">Test</Button>
+              <Button @click.native="$router.push({name: 'dashboard'})">Test</Button>
           </b-row>
         </b-col>
       </b-row>
