@@ -13,8 +13,9 @@ const routes = [
     path: '/dashboard',
     name: 'dashboard',
     component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
+    redirect: '/dashboard',
     children: [
-      { path: '/dashboard', name: 'dashboard-index', component: () => import(/* webpackChunkName: "drilldown" */ '../views/DataViews/index.vue') },
+      { path: '', name: 'dashboard-index', component: () => import(/* webpackChunkName: "dashboard-index" */ '../views/DataViews/index.vue') },
       { path: '/dashboard/drilldown', name: 'drilldown', component: () => import(/* webpackChunkName: "drilldown" */ '../views/DataViews/DrillDown.vue') },
       { path: '/dashboard/table', name: 'table', component: () => import(/* webpackChunkName: "table" */ '../views/DataViews/Table.vue') }
     ]
