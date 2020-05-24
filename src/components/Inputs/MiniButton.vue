@@ -52,9 +52,9 @@ export default {
   &.active {
     color: #fff;
     background-color: #ee337c;
-  -webkit-box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
-  -moz-box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
-  box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
+    -webkit-box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
+    -moz-box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
+    box-shadow: 0px 0px 34px -6px rgba(238, 51, 124, 0.67);
     &:hover {
       transition: 0.2s ease-in-out;
       background: #fff;

@@ -40,31 +40,35 @@
         </div>
         <div class="dataViewWrapper">
           <MiniButton
-            class="ml-2"
+            class="miniButton"
             icon="text-center"
           >Tree</MiniButton>
           <MiniButton
-            class="ml-2"
+            class="miniButton"
             icon="map"
           >Map</MiniButton>
           <MiniButton
-            class="ml-2"
+            class="miniButton"
             icon="bar-chart-fill"
+            :active="$route.name == 'drilldown'"
             @click.native="$router.push({name: 'drilldown'})"
           >Chart</MiniButton>
           <MiniButton
-            class="ml-2"
+            class="miniButton"
             icon="table"
+            :active="$route.name == 'table'"
             @click.native="$router.push({name: 'table'})"
           >Table</MiniButton>
           <MiniButton
-            class="ml-2"
+            class="miniButton"
             icon="list-ul"
           >List</MiniButton>
         </div>
       </b-row>
       <b-row class="contentBody">
-        <router-view class="mt-3 w-100"></router-view>
+        <keep-alive>
+          <router-view class="mt-3 w-100"></router-view>
+        </keep-alive>
       </b-row>
     </b-container>
   </div>
@@ -92,12 +96,12 @@ export default {
 .titleWrapper {
   width: 100%;
   background-color: #00000088;
-  height: 100px;
+  min-height: 100px;
   display: flex;
   align-items: center;
   .title {
     font-family: Avenir;
-    font-size: 40px;
+    font-size: 1.5em;
     font-weight: lighter;
     color: #fff;
     margin-left: 20px;
@@ -132,9 +136,28 @@ export default {
   .contentHeader {
     display: flex;
     justify-content: space-between;
+    @media (max-width: 521px) and (min-width: 375px) {
+      justify-content: center;
+      .downloadData {
+        margin-bottom: 5px;
+      }
+    }
+    @media (max-width: 375px) {
+      flex-direction: column;
+    }
     .dataViewWrapper {
       display: flex;
       justify-content: space-between;
+      & .miniButton {
+        margin-left: 5px;
+      }
+      @media (max-width: 375px) {
+        flex-direction: column;
+        .miniButton {
+          margin-left: 0;
+          margin-top: 10px;
+        }
+      }
     }
   }
 }
