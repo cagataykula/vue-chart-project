@@ -9,7 +9,7 @@
       required
       :name="name"
       :disabled="disabled"
-      placeholder="Please enter your value"
+      :placeholder="placeholder"
     />
     <span class="inputTitle">
       <slot />
@@ -21,6 +21,11 @@
 export default {
   props: {
     value: {
+      required: false,
+      type: String,
+      default: ''
+    },
+    placeholder: {
       required: false,
       type: String,
       default: ''

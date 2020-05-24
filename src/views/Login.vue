@@ -14,10 +14,10 @@
       </b-row>
       <b-row class="inputWrapper">
         <b-col class="p-2" sm="12" md="6">
-          <TextInput>Email</TextInput>
+          <TextInput placeholder="Please enter your email">Email</TextInput>
         </b-col>
         <b-col class="p-2" sm="12" md="6">
-          <TextInput password>Password</TextInput>
+          <TextInput password placeholder="Please enter your password">Password</TextInput>
           <b-row class="forgotAndLoginWrapper">
               <span class="forgotText">Forgot Password</span>
               <Button @click.native="$router.push({name: 'dashboard'})">Test</Button>
