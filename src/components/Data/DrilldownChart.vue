@@ -71,7 +71,6 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('getTableData')
     this.$store.dispatch('getChartData').then(() => {
       const chart = this.$store.getters.chart
       this.chartOptions.series = chart.series
