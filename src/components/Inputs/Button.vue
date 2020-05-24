@@ -8,7 +8,7 @@
 
 <style lang="scss" scoped>
 .buttonWrapper {
-  background-color: #fff; /* Green */
+  background-color: #fff;
   border: 1px solid #ee337c;
   border-radius: 5px;
   color: #ee337c;

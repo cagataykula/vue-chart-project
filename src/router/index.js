@@ -18,7 +18,12 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue')
+    component: () => import(/* webpackChunkName: "dashboard" */ '../views/Dashboard.vue'),
+    children: [
+      { path: '/', component: Home },
+      { path: '/dashboard/drilldown', name: 'drilldown', component: () => import(/* webpackChunkName: "drilldown" */ '../views/DataViews/DrillDown.vue') },
+      { path: '/dashboard/table', name: 'table', component: () => import(/* webpackChunkName: "table" */ '../views/DataViews/Table.vue') }
+    ]
   }
 ]
 

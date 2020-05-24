@@ -41,7 +41,6 @@ export default {
 .loginPage {
   background-image: url("../assets/images/bg-login.jpg");
   background-size: cover;
-//   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-attachment: fixed;
   min-height: 100%;
