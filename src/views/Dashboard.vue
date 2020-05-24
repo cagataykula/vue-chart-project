@@ -53,13 +53,13 @@
             class="miniButton"
             icon="bar-chart-fill"
             :active="$route.name == 'drilldown'"
-            @click.native="$router.push({name: 'drilldown'})"
+            @click.native="changeView('drilldown')"
           >Chart</MiniButton>
           <MiniButton
             class="miniButton"
             icon="table"
             :active="$route.name == 'table'"
-            @click.native="$router.push({name: 'table'})"
+            @click.native="changeView('table')"
           >Table</MiniButton>
           <MiniButton
             class="miniButton"
@@ -83,6 +83,11 @@ import MiniButton from '../components/Inputs/MiniButton'
 export default {
   components: {
     MiniButton
+  },
+  methods: {
+    changeView (name) {
+      if (this.$route.name !== name) { this.$router.push({ name }) }
+    }
   }
 }
 </script>
