@@ -1,17 +1,54 @@
 <template>
-    <div>
-        <DrilldownChart />
-    </div>
+  <div>
+    <highcharts :options="chartOptions"></highcharts>
+  </div>
 </template>
 
 <script>
-import DrilldownChart from '../../components/Data/DrilldownChart'
+import highcharts from 'highcharts'
+import { Chart } from 'highcharts-vue'
+import drilldown from 'highcharts/modules/drilldown'
+
+drilldown(highcharts)
 
 export default {
-  components: { DrilldownChart }
+  components: {
+    highcharts: Chart
+  },
+  data () {
+    return {
+      chartOptions: {}
+    }
+  },
+  created () {
+    this.$store.dispatch('getChartData').then(() => {
+      const { series, drilldown } = this.$store.getters.chart
+
+      this.chartOptions = {
+        chart: {
+          type: 'column'
+        },
+        title: {
+          text: 'Mock Data'
+        },
+        yAxis: {
+          title: {
+            text: ''
+          }
+        },
+        plotOptions: {
+          series: {
+            borderWidth: 0,
+            dataLabels: {
+              enabled: true,
+              format: '{point.y:.1f}'
+            }
+          }
+        },
+        series,
+        drilldown
+      }
+    })
+  }
 }
 </script>
-
-<style>
-
-</style>
