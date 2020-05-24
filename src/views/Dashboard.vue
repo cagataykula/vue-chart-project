@@ -108,6 +108,7 @@ export default {
     font-weight: lighter;
     color: #fff;
     margin-left: 20px;
+    margin-bottom: 0;
   }
 }
 
