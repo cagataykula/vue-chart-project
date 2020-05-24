@@ -36,16 +36,18 @@
     <b-container class="content">
       <b-row class="contentHeader">
         <div class="downloadData">
-          <MiniButton icon="download">Download</MiniButton>
+          <MiniButton icon="download" disabled>Download</MiniButton>
         </div>
         <div class="dataViewWrapper">
           <MiniButton
             class="miniButton"
             icon="text-center"
+            disabled
           >Tree</MiniButton>
           <MiniButton
             class="miniButton"
             icon="map"
+            disabled
           >Map</MiniButton>
           <MiniButton
             class="miniButton"
@@ -62,6 +64,7 @@
           <MiniButton
             class="miniButton"
             icon="list-ul"
+            disabled
           >List</MiniButton>
         </div>
       </b-row>

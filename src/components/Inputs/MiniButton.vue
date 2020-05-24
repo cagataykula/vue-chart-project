@@ -1,9 +1,12 @@
 <template>
   <div
     class="buttonWrapper"
-    :class="active && 'active'"
+    :class="(active ? ' active ' : '') + (disabled ? ' disabled ' : '')"
   >
-    <button class="button">
+    <button
+      class="button"
+      :disabled="disabled"
+    >
       <b-icon
         class="mr-2"
         v-if="icon"
@@ -23,6 +26,11 @@ export default {
       default: ''
     },
     active: {
+      required: false,
+      type: Boolean,
+      default: false
+    },
+    disabled: {
       required: false,
       type: Boolean,
       default: false
@@ -65,6 +73,10 @@ export default {
       background: #ee337c;
       transition: 0.15s ease-in-out;
     }
+  }
+  &.disabled {
+    background-color: #0000008e !important;
+    color: #fff;
   }
   .button {
     background: none;
